@@ -2,7 +2,15 @@ import React from "react";
 import { useRover } from "./hooks/useRover";
 
 export const RoverApp = () => {
-    const { position, moveUp, moveDown, moveLeft, moveRight } = useRover();
+    const {
+        position,
+        moveUp,
+        moveDown,
+        moveLeft,
+        moveRight,
+        clickCount,
+        setClickCount,
+    } = useRover();
 
     return (
         <div className="rover-container">
