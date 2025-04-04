@@ -4,15 +4,28 @@ export const RoverApp = () => {
     const [position, setPosition] = useState({ top: 0, left: 0 });
 
     const moveStep = 5;
+    const gridSize = 400;
 
     const moveUp = () =>
-        setPosition((prev) => ({ ...prev, top: prev.top - moveStep }));
+        setPosition((prev) => ({
+            ...prev,
+            top: Math.max(prev.top - moveStep, 0),
+        }));
     const moveDown = () =>
-        setPosition((prev) => ({ ...prev, top: prev.top + moveStep }));
+        setPosition((prev) => ({
+            ...prev,
+            top: Math.min(prev.top + moveStep, gridSize - 50),
+        }));
     const moveLeft = () =>
-        setPosition((prev) => ({ ...prev, left: prev.left - moveStep }));
+        setPosition((prev) => ({
+            ...prev,
+            left: Math.max(prev.left - moveStep, 0),
+        }));
     const moveRight = () =>
-        setPosition((prev) => ({ ...prev, left: prev.left + moveStep }));
+        setPosition((prev) => ({
+            ...prev,
+            left: Math.min(prev.left + moveStep, gridSize - 50),
+        }));
 
     return (
         <div className="rover-container">
