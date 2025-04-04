@@ -2,20 +2,7 @@ import React, { useState } from "react";
 
 export const useRover = (moveStep = 5, gridSize = 400) => {
     const [position, setPosition] = useState({ top: 0, left: 0 });
-    const [obstacle, setObstacle] = useState(false);
-
-    const obstacles = [
-        { top: 50, left: 50 },
-        { top: 100, left: 100 },
-        { top: 200, left: 150 },
-    ];
-
-    const isObstacle = (newPosition) => {
-        obstacles.some((obstacle) => {
-            obstacle.top === newPosition.top &&
-                obstacle.left === newPosition.left;
-        });
-    };
+    const [clickCount, setClickCount] = useState(0);
 
     const moveUp = () =>
         setPosition((prev) => ({
@@ -38,5 +25,13 @@ export const useRover = (moveStep = 5, gridSize = 400) => {
             left: Math.min(prev.left + moveStep, gridSize - 50),
         }));
 
-    return { position, moveUp, moveDown, moveLeft, moveRight };
+    return {
+        position,
+        moveUp,
+        moveDown,
+        moveLeft,
+        moveRight,
+        clickCount,
+        setClickCount,
+    };
 };
