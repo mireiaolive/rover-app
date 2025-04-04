@@ -1,0 +1,28 @@
+.rover-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.grid {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: auto;
+}
+
+.rover {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    transition: top 0.1s, left 0.1s;
+}
+
+.controls {
+    margin-top: 20px;
+}
+
+button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
