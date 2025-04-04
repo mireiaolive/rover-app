@@ -10,6 +10,13 @@ export const useRover = (moveStep = 5, gridSize = 400) => {
         { top: 200, left: 150 },
     ];
 
+    const isObstacle = (newPosition) => {
+        obstacles.some((obstacle) => {
+            obstacle.top === newPosition.top &&
+                obstacle.left === newPosition.left;
+        });
+    };
+
     const moveUp = () =>
         setPosition((prev) => ({
             ...prev,
