@@ -2,6 +2,13 @@ import React, { useState } from "react";
 
 export const useRover = (moveStep = 5, gridSize = 400) => {
     const [position, setPosition] = useState({ top: 0, left: 0 });
+    const [obstacle, setObstacle] = useState(false);
+
+    const obstacles = [
+        { top: 50, left: 50 },
+        { top: 100, left: 100 },
+        { top: 200, left: 150 },
+    ];
 
     const moveUp = () =>
         setPosition((prev) => ({
