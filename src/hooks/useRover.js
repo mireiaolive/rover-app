@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 export const useRover = (moveStep = 5, gridSize = 400) => {
     const [position, setPosition] = useState({ top: 0, left: 0 });
-    const [clickCount, setClickCount] = useState(0);
 
     const moveUp = () =>
         setPosition((prev) => ({
@@ -31,7 +30,5 @@ export const useRover = (moveStep = 5, gridSize = 400) => {
         moveDown,
         moveLeft,
         moveRight,
-        clickCount,
-        setClickCount,
     };
 };

@@ -1,16 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { useRover } from "./hooks/useRover";
 
 export const RoverApp = () => {
-    const {
-        position,
-        moveUp,
-        moveDown,
-        moveLeft,
-        moveRight,
-        clickCount,
-        setClickCount,
-    } = useRover();
+    const [alertMessage, setAlertMessage] = useState("");
+    const [moveSequence, setMoveSequence] = useState([]);
+    const { position, moveUp, moveDown, moveLeft, moveRight } = useRover();
+
+    const handleMove = (direction) => {
+        const dangerSequence = ["down", "right", "down"];
+        const newSequence = [...moveSequence, direction];
+        //mantenim 3 ultims moviments
+        if (newSequence.length > 3) newSequence.shift();
+        console.log(newSequence);
+        //compara ultims 3 moviments amb sequencia danger
+        const isDanger = dangerSequence.every(
+            (move, i) => move === newSequence[i]
+        );
+
+        if (isDanger) {
+            setAlertMessage("Danger! You have encountered an obstacle.");
+            return;
+        }
+
+        if (direction === "up") moveUp();
+        if (direction === "down") moveDown();
+        if (direction === "left") moveLeft();
+        if (direction === "right") moveRight();
+
+        setMoveSequence(newSequence);
+    };
 
     return (
         <div className="rover-container">
@@ -30,11 +48,13 @@ export const RoverApp = () => {
                 />
             </div>
 
+            {alertMessage && <div className="alert">{alertMessage}</div>}
+
             <div className="controls">
-                <button onClick={moveLeft}>◀️ L</button>
-                <button onClick={moveUp}>🔼 F</button>
-                <button onClick={moveDown}>🔽 F</button>
-                <button onClick={moveRight}>▶️ R</button>
+                <button onClick={() => handleMove("left")}>◀️ L</button>
+                <button onClick={() => handleMove("up")}>🔼 F</button>
+                <button onClick={() => handleMove("down")}>🔽 F</button>
+                <button onClick={() => handleMove("right")}>▶️ R</button>
             </div>
         </div>
     );
