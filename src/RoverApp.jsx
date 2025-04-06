@@ -9,10 +9,8 @@ export const RoverApp = () => {
     const handleMove = (direction) => {
         const dangerSequence = ["down", "right", "down"];
         const newSequence = [...moveSequence, direction];
-        //mantenim 3 ultims moviments
         if (newSequence.length > 3) newSequence.shift();
-        console.log(newSequence);
-        //compara ultims 3 moviments amb sequencia danger
+
         const isDanger = dangerSequence.every(
             (move, i) => move === newSequence[i]
         );
