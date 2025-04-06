@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useRover } from "./hooks/useRover";
 
-export const RoverApp = () => {
+export const RoverApp: React.FC = () => {
     const [alertMessage, setAlertMessage] = useState<string>("");
     const [moveSequence, setMoveSequence] = useState<string[]>([]);
     const { position, moveUp, moveDown, moveLeft, moveRight } = useRover();
