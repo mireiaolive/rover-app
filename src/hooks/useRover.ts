@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
+
+type Position = {
+    top: number;
+    left: number;
+};
 
 export const useRover = (moveStep = 5, gridSize = 400) => {
-    const [position, setPosition] = useState({ top: 0, left: 0 });
+    const [position, setPosition] = useState<Position>({ top: 0, left: 0 });
 
     const moveUp = () =>
         setPosition((prev) => ({

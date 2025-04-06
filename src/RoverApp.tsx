@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useRover } from "./hooks/useRover";
 
 export const RoverApp = () => {
-    const [alertMessage, setAlertMessage] = useState("");
-    const [moveSequence, setMoveSequence] = useState([]);
+    const [alertMessage, setAlertMessage] = useState<string>("");
+    const [moveSequence, setMoveSequence] = useState<string[]>([]);
     const { position, moveUp, moveDown, moveLeft, moveRight } = useRover();
 
-    const handleMove = (direction) => {
+    const handleMove = (direction: string) => {
         const dangerSequence = ["down", "right", "down"];
         const newSequence = [...moveSequence, direction];
         if (newSequence.length > 3) newSequence.shift();
