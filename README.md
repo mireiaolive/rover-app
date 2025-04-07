@@ -15,7 +15,7 @@ L'oobjectiu de la prova tècnica és desenvolupar un programari que tradueixi le
 ## Com executar el projecte
 
 ### Clona aquest repositori
-git clone https://github.com/el-teu-usuari/mars-rover-app.git
+git clone https://github.com/mireiaolive/rover-app.git
 cd rover-app
 
 ### Instal·la les dependències
