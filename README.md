@@ -46,7 +46,7 @@ Si el rover rep una seqüència de moviments concreta (per exemple: avall → dr
 - Persistència de dades mitjançant localStorage o backend
 
 ## LLicència
-Aquest projecte és d'us educatiu fet per Mireia OLivé Fructuoso
+Aquest projecte és d'us educatiu fet per Mireia Olivé Fructuoso
 
 
 
