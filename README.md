@@ -24,8 +24,6 @@ npm install
 ### Executa l’aplicació en mode desenvolupament
 npm start
 
-L’aplicació estarà disponible a http://localhost:3000.
-
 ## Controls del Rover
 ◀️ L — Mou el rover a l'esquerra
 
