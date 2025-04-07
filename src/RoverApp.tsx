@@ -20,10 +20,22 @@ export const RoverApp: React.FC = () => {
             return;
         }
 
-        if (direction === "up") moveUp();
-        if (direction === "down") moveDown();
-        if (direction === "left") moveLeft();
-        if (direction === "right") moveRight();
+        switch (direction) {
+            case "up":
+                moveUp();
+                break;
+            case "down":
+                moveDown();
+                break;
+            case "left":
+                moveLeft();
+                break;
+            case "right":
+                moveRight();
+                break;
+            default:
+                break;
+        }
 
         setMoveSequence(newSequence);
     };
